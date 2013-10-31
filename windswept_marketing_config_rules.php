@@ -1331,29 +1331,16 @@ $config_rules = array(
 				array(
 					'action' => 'send_alert',
 					'params' => array(	
-						'params' => array(
 						'subject' => 'Your Product Has Been Shipped',
 						'from_address' => '@owner[login_name]@',
 						'to_addresses' => '@cf_supplier_order_contact_email@', // client email to be looked up via client ID
 						'template' => 'Supplier Order Tracking Number',
 					),
 				),
-			/**	array(
-					'action' => 'update_field',
-					'params' => array(	
-						'name' => 'FU in 3 days on revised quote @description@',
-						'description' => 'Quote Owner to FU in 3 days',
-						'activity_priority' => 'Medium',
-						'activity_status' => 'New',
-						'activity_type' => 'To-do',
-						'due_date' => '+3 days',
-					),
-				),
-				*/
 			),
 		),
-	),
-
+	
+),
 );
 
 
