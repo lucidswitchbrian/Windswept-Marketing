@@ -11,7 +11,7 @@
 
 $config_rules = array(
 "Private::Crm::SalesLead" => array(
-		
+	
 		array(
 			"rule_id" => 4,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -1309,6 +1309,49 @@ $config_rules = array(
 			),
 		),
 		// end quotation
+	),
+	"Private::Accounting::PurchaseOrder" => array(
+	array(
+			"rule_id" => 38,
+			"active" => 1, // Active:1; Not-Active: 0
+            "rule_name" => "Supplier Order Tracking Number",
+			"rule_desc" => "when tracking is filled into the supplier order, update the sales order with the 
+			tracking number, and send out an email to the client using the Supplier Order Tracking Number email template",
+			"exec_on" => "Create or Edit",
+            "criteria_desc" => "tracking number is NOT Empty",
+			//provide the criteria for the rule if multiple criteria
+			"criteria" => array(
+			//provide criteria for the rule if only a single criteria exists
+			"field" => "cf_supplier_order_tracking_number",
+			"crit" => "ne",
+			"value" => "",
+			),
+			//create the actions for the rule
+			"actions" => array(
+				array(
+					'action' => 'send_alert',
+					'params' => array(	
+						'params' => array(
+						'subject' => 'Your Product Has Been Shipped',
+						'from_address' => '@owner[login_name]@',
+						'to_addresses' => '@cf_supplier_order_contact_email@', // client email to be looked up via client ID
+						'template' => 'Supplier Order Tracking Number',
+					),
+				),
+			/**	array(
+					'action' => 'update_field',
+					'params' => array(	
+						'name' => 'FU in 3 days on revised quote @description@',
+						'description' => 'Quote Owner to FU in 3 days',
+						'activity_priority' => 'Medium',
+						'activity_status' => 'New',
+						'activity_type' => 'To-do',
+						'due_date' => '+3 days',
+					),
+				),
+				*/
+			),
+		),
 	),
 
 );
