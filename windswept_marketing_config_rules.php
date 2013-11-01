@@ -438,7 +438,7 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 		array(
 			"rule_id" => 9,
 			"active" => 0, // Active:1; Not-Active: 0
@@ -899,9 +899,9 @@ $config_rules = array(
             "exec_on" => "Edit",
             "criteria_desc" => "Artwork IS Needs Edit",
             "criteria" => array(
-            //provide criteria for the rule if only a single criteria exists
-            "field" => "cf_customer_quotation_artwork",
-            "value" => "Needs Edit",
+	            //provide criteria for the rule if only a single criteria exists
+	            "field" => "cf_customer_quotation_artwork",
+	            "value" => "Needs Edit",
             ),
             //create the actions for the rule
             "actions" => array(
@@ -911,6 +911,7 @@ $config_rules = array(
                         'name' => 'Artwork Proof Requires Edit',
                         'description' => 'create a task for quoting - Artwork Proof
                         Requires Edit for @opportunity[name]@',
+                        // Requires Edit for @opportunity[name]@',
                         //Requires Edit for @cf_customer_quotation_contact_name@',
                         'activity_priority' => 'Medium',
                         'activity_status' => 'New',
@@ -1158,7 +1159,7 @@ $config_rules = array(
 			),
 		),
 	),
-	
+
 /**array(
 			"rule_id" => 23,
 			"active" => 1, // Active:1; Not-Active: 0
