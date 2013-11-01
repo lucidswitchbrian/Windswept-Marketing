@@ -11,7 +11,6 @@
 
 $config_rules = array(
 "Private::Crm::SalesLead" => array(
-
 		array(
 			"rule_id" => 4,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -579,16 +578,16 @@ $config_rules = array(
 		),
 		array(
 			"rule_id" => 36,
-			"active" => 0, // Active:1; Not-Active: 0
+			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "Secure P.O.",
 			"rule_desc" => "desc - if it is 3 days after the closed date, and the PO Received is not yes and stage is closed won",
 			"exec_on" => "Edit",
             "criteria_desc" => "PO Received IS NOT Yes && Stage IS (6) Closed Won, && Closed date is 3 days prior",
 			//provide the criteria for the rule if multiple criteria
 			"criteria" => array(
-				"field" => array("cf_opportunity_po_received","document_date", "opportunity_stage[name]"),
-				"crit" => array("ne","eq","eq"),
-				"value" => array("Yes", date('j M Y', time() - 3 * 24 * 60 * 60), "(6) Closed Won"),
+				"field" => array("cf_opportunity_po_received" , "opportunity_stage[name]", "document_date"),
+				"crit" => array("ne", "eq", "eq"),
+				"value" => array("Yes", "(6) Closed Won", date('Y-m-d', time() - 3 * 24 * 60 * 60)),
 			),
 			//create the actions for the rule
 			"actions" => array(
