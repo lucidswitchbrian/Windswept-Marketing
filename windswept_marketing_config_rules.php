@@ -724,38 +724,9 @@ $config_rules = array(
 				),
 			),
 		),
-
-	array(
-			"rule_id" => 29,
-			"active" => 1, // Active:1; Not-Active: 0
-            "rule_name" => "Waiting on Approval - Sales Order Sew Out",
-			"rule_desc" => "set up a task for the record owner to FU on the sew out proof",
-			"exec_on" => "edit",
-            "criteria_desc" => "Sales Order Status IS Waiting on Approval",
-			//provide the criteria for the rule if multiple criteria
-			"criteria" => array(
-			//provide criteria for the rule if only a single criteria exists
-			"field" => "cf_sales_order_sales_order_status",
-			"value" => "Waiting on Approval",
-			),
-			//create the actions for the rule
-			"actions" => array(
-				array(
-					'action' => 'create_task_for_record_owner',
-					'params' => array(
-						'name' => 'FU On Sew Out Approval in 3 days',
-						'description' => 'FU On Sew Out Approval in 3 days',
-						'activity_priority' => 'Medium',
-						'activity_status' => 'New',
-						'activity_type' => 'To-do',
-						'due_date' => '+3 days',
-					),
-				),
-			),
-		),
 		array(
 			"rule_id" => 30,
-			"active" => 1, // Active:1; Not-Active: 0
+			"active" => 0, // Active:1; Not-Active: 0
             "rule_name" => "Waiting on Sew Out Edit",
 			"rule_desc" => "create a reminder to FU with factory on the sew out edit",
 			"exec_on" => "edit",
@@ -769,7 +740,7 @@ $config_rules = array(
 			//create the actions for the rule
 			"actions" => array(
 				array(
-					'action' => 'create_task_for_Operations',
+					'action' => 'create_task',
 					'params' => array(
 						'name' => 'FU on Sew out Edit in 3 days',
 						'description' => 'Operations to FU on Sew out Edit in 3 days',
@@ -777,47 +748,6 @@ $config_rules = array(
 						'activity_status' => 'New',
 						'activity_type' => 'To-do',
 						'due_date' => '+3 days',
-					),
-				),
-			),
-		),
-			array(
-			"rule_id" => 31,
-			"active" => 0, // Active:1; Not-Active: 0
-            "rule_name" => "Expected Arrival of Product",
-			"rule_desc" => "send out an email to the client and the sales order owner
-			letting them know the tracking number and the expected arrival date have
-			been created",
-			"exec_on" => "edit",
-            "criteria_desc" => "tracking number && ETD are NOT empty",
-			//provide the criteria for the rule if multiple criteria
-			"criteria" => array(
-			"field" => array("cf_sales_order_tracking_number","cf_sales_order_ETD"),
-			"crit" => array("ne","ne"),
-			"value" => array(" "," "),
-			),
-			//create the actions for the rule
-			"actions" => array(
-				array(
-					// Send alert to client
-					'active' => 1,
-					'action' => 'send_alert_to_Client',
-					'params' => array(
-						'subject' => 'Tracking number for PO Number',
-						'from_address' => '@owner[login_name]@',
-						'to_addresses' => '@party_id@', // client email to be looked up via client ID
-						'template' => 'Tracking number email to client',
-					),
-				),
-				array(
-					// Send alert to sales
-					'active' => 1,
-					'action' => 'send_alert',
-					'params' => array(
-						'subject' => 'Sales - Tracking number for PO Number',
-						'from_address' => '@owner[login_name]@',
-						'to_addresses' => 'orders@windsweptmarketing.com', // client email to be looked up via client ID
-						'template' => 'Tracking number email to sales',
 					),
 				),
 			),
