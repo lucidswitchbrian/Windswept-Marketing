@@ -114,7 +114,7 @@ $config_rules = array(
 					'params' => array(
 						'subject' => 'IA Brochure Requested',
 						'from_address' => '@owner[login_name]@',
-						'to_addresses' => '@admin@windswept.com@', // client email to be looked up via client ID
+						'to_addresses' => '@operations@windsweptmarketing.com@', // client email to be looked up via client ID
 						'template' => 'IA Brochure Requested',
 					),
 				),
@@ -150,94 +150,6 @@ $config_rules = array(
 				),
 			),
 		),
-
-		array(
-			"rule_id" => 8,
- 			"active" => 1, // Active:1; Not-Active: 0
-            "rule_name" => "Preliminary Follow Up",
-			"rule_desc" => "create a follow up for sales",
-			"exec_on" => "Create or Edit",
-            "criteria_desc" => "Stage IS Preliminary",
-			"criteria" => array(
-			//provide criteria for the rule if only a single criteria exists
-			"field" => "opportunity_stage[name]",
-			"value" => "(1) Preliminary",
-			),
-			//create the actions for the rule
-			"actions" => array(
-				array(
-					'action' => 'create_task',
-					'params' => array(
-						'name' => 'FU on Preliminary - Future Project',
-						'description' => 'FU on Preliminary in 5 days',
-						'activity_priority' => 'Medium',
-						'activity_status' => 'New',
-						'activity_type' => 'To-do',
-						'due_date' => '+30 days',
-					),
-				),
-			),
-		),
-
-	array(
-			"rule_id" => 9,
-			"active" => 1, // Active:1; Not-Active: 0
-            "rule_name" => "FU on PO",
-			"rule_desc" => "when the stage is udpdated to waiting on po, there should be a FU set",
-			"exec_on" => "Edit",
-            "criteria_desc" => "Stage IS Waiting on PO",
-			//provide the criteria for the rule if multiple criteria
-			"criteria" => array(
-			//provide criteria for the rule if only a single criteria exists
-			"field" => "opportunity_stage[name]",
-			"value" => "(9) Waiting on PO",
-			),
-			//create the actions for the rule
-			"actions" => array(
-				array(
-					'action' => 'create_task',
-					'params' => array(
-						'name' => 'FU in 2 days on PO',
-						'description' => 'FU in 2 days on PO',
-						'activity_priority' => 'Medium',
-						'activity_status' => 'New',
-						'activity_type' => 'To-do',
-						'due_date' => '+2 days',
-					),
-				),
-			),
-		),
-
-		array(
-			"rule_id" => 13,
-			"active" => 1, // Active:1; Not-Active: 0
-            "rule_name" => "Update Opp Artwork Field When Proof Accepted",
-			"rule_desc" => "when the artwork is accepted, the Home Office should
-			update the product record (artwork) with the new product art",
-			"exec_on" => "Edit",
-            "criteria_desc" => "Artwork IS Proof Accepted",
-			//provide the criteria for the rule if multiple criteria
-			"criteria" => array(
-			//provide criteria for the rule if only a single criteria exists
-			"field" => "cf_customer_quotation_artwork",
-			"value" => "Proof Accepted",
-			),
-			//create the actions for the rule
-			"actions" => array(
-				array(
-					'action' => 'create_task',
-					'params' => array(
-						'name' => 'Update the Artwork field',
-						'description' => 'Update the Artwork field in Opportunity',
-						'activity_priority' => 'Medium',
-						'activity_status' => 'New',
-						'activity_type' => 'To-do',
-						'due_date' => '+3 days',
-					),
-				),
-			),
-		),
-
 		array(
 			"rule_id" => 14,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -786,11 +698,39 @@ $config_rules = array(
 				),
 			),
 		),
-
+		
+		array(
+			"rule_id" => 9,
+			"active" => 0, // Active:1; Not-Active: 0
+            "rule_name" => "FU on PO",
+			"rule_desc" => "when the stage is udpdated to waiting on po, there should be a FU set",
+			"exec_on" => "Edit",
+            "criteria_desc" => "Stage IS Waiting on PO",
+			//provide the criteria for the rule if multiple criteria
+			"criteria" => array(
+			//provide criteria for the rule if only a single criteria exists
+			"field" => "opportunity_stage[name]",
+			"value" => "(9) Waiting on PO",
+			),
+			//create the actions for the rule
+			"actions" => array(
+				array(
+					'action' => 'create_task',
+					'params' => array(
+						'name' => 'FU in 2 days on PO',
+						'description' => 'FU in 2 days on PO',
+						'activity_priority' => 'Medium',
+						'activity_status' => 'New',
+						'activity_type' => 'To-do',
+						'due_date' => '+2 days',
+					),
+				),
+			),
+		),
 
 	array(
 			"rule_id" => 10,
-			"active" => 1, // Active:1; Not-Active: 0
+			"active" => 0, // Active:1; Not-Active: 0
             "rule_name" => "Waiting on Artwork - Sales Order",
 			"rule_desc" => "when the stage is set to Waiting on Artwork create a
 			FU task and sends out the Artwork Requested email",
@@ -824,6 +764,35 @@ $config_rules = array(
 						'from_address' => '@owner[login_name]@',
 						'to_addresses' => '@cf_opportunity_contact_email@', // client email to be looked up via client ID
 						'template' => 'Artwork Request',
+					),
+				),
+			),
+		),
+		array(
+			"rule_id" => 13,
+			"active" => 0, // Active:1; Not-Active: 0
+            "rule_name" => "Update Opp Artwork Field When Proof Accepted",
+			"rule_desc" => "when the artwork is accepted, the Home Office should
+			update the product record (artwork) with the new product art",
+			"exec_on" => "Edit",
+            "criteria_desc" => "Artwork IS Proof Accepted",
+			//provide the criteria for the rule if multiple criteria
+			"criteria" => array(
+			//provide criteria for the rule if only a single criteria exists
+			"field" => "cf_customer_quotation_artwork",
+			"value" => "Proof Accepted",
+			),
+			//create the actions for the rule
+			"actions" => array(
+				array(
+					'action' => 'create_task',
+					'params' => array(
+						'name' => 'Update the Artwork field',
+						'description' => 'Update the Artwork field in Opportunity',
+						'activity_priority' => 'Medium',
+						'activity_status' => 'New',
+						'activity_type' => 'To-do',
+						'due_date' => '+3 days',
 					),
 				),
 			),
