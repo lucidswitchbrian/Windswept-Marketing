@@ -261,7 +261,7 @@ $config_rules = array(
 
 	array(
 			"rule_id" => 17,
-			"active" => 1, // Active:1; Not-Active: 0
+			"active" => 1, // Active:1; Not-Active: 0  - rule is working
             "rule_name" => "Requested FU",
 			"rule_desc" => "when a baseline client has no immediate need, but has requested a
 			FU for the future based on when the need exists, they should get an email as well
@@ -302,7 +302,7 @@ $config_rules = array(
 		),
 		array(
 			"rule_id" => 20,
-			"active" => 1, // Active:1; Not-Active: 0
+			"active" => 1, // Active:1; Not-Active: 0  - rule is working
             "rule_name" => "Attempted to Contact TK",
 			"rule_desc" => "Sets up a FU",
 			"exec_on" => "Edit",
@@ -360,7 +360,7 @@ $config_rules = array(
 					'active' => 1,
 					'action' => 'send_alert',
 					'params' => array(
-						'subject' => 'TBD',
+						'subject' => 'Sorry I missed You on the phone Today!',
 						'from_address' => '@owner[login_name]@',
 						'to_addresses' => '@org_lead_party[main_location[email]]@', // client email to be looked up via client ID
 						'template' => 'Attempted to Contact x2 TK',
@@ -400,7 +400,7 @@ $config_rules = array(
 					'active' => 1,
 					'action' => 'send_alert',
 					'params' => array(
-						'subject' => 'TBD',
+						'subject' => 'Meeting',
 						'from_address' => '@owner[login_name]@',
 						'to_addresses' => '@org_lead_party[main_location[email]]@', // client email to be looked up via client ID
 						'template' => 'Attempted to Contact x3 TK',
