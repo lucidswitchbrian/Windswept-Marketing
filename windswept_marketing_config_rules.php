@@ -114,7 +114,7 @@ $config_rules = array(
 					'params' => array(
 						'subject' => 'IA Brochure Requested',
 						'from_address' => '@owner[login_name]@',
-						'to_addresses' => '@operations@windsweptmarketing.com@', // client email to be looked up via client ID
+						'to_addresses' => 'operations@windsweptmarketing.com', // client email to be looked up via client ID
 						'template' => 'IA Brochure Requested',
 					),
 				),
@@ -181,7 +181,7 @@ $config_rules = array(
 
 	array(
 			"rule_id" => 15,
-			"active" => 1, // Active:1; Not-Active: 0
+			"active" => 1, // Active:1; Not-Active: 0 - works
             "rule_name" => "Attempted to Contact x2 BL",
 			"rule_desc" => "setting up FU and email to lead after 2nd time trying to contact them",
 			"exec_on" => "Edit",
@@ -210,7 +210,7 @@ $config_rules = array(
 					'active' => 1,
 					'action' => 'send_alert',
 					'params' => array(
-						'subject' => 'Attempted to Contact x2 BL',
+						'subject' => 'Sorry I missed You on the phone Today!',
 						'from_address' => '@owner[login_name]@',
 						'to_addresses' => '@org_lead_party[main_location[email]]@', // client email to be looked up via client ID
 						'template' => 'Attempted to Contact x2 BL',
@@ -221,7 +221,7 @@ $config_rules = array(
 
 	array(
 			"rule_id" => 16,
-			"active" => 1, // Active:1; Not-Active: 0
+			"active" => 1, // Active:1; Not-Active: 0  - rule is working
             "rule_name" => "Attempted to Contact x3 BL",
 			"rule_desc" => "setting up FU and email to lead after 2nd time trying to contact them",
 			"exec_on" => "Edit",
@@ -250,7 +250,7 @@ $config_rules = array(
 					'active' => 1,
 					'action' => 'send_alert',
 					'params' => array(
-						'subject' => 'TBD',
+						'subject' => 'Meeting',
 						'from_address' => '@owner[login_name]@',
 						'to_addresses' => '@org_lead_party[main_location[email]]@', // client email to be looked up via client ID
 						'template' => 'Attempted to Contact x3 BL',
