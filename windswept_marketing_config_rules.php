@@ -581,16 +581,14 @@ $config_rules = array(
 			"rule_id" => 36,
 			"active" => 0, // Active:1; Not-Active: 0
             "rule_name" => "Secure P.O.",
-			"rule_desc" => "if it is 3 days after the closed date,
-			and the PO Received checkbox is not ticked, create a task
-			to FU on PO for Opportunity Name",
+			"rule_desc" => "desc - if it is 3 days after the closed date, and the PO Received is not yes and stage is closed won",
 			"exec_on" => "Edit",
-            "criteria_desc" => "PO Received IS NOT YES",
+            "criteria_desc" => "PO Received IS NOT Yes && Stage IS (6) Closed Won, && Closed date is 3 days prior",
 			//provide the criteria for the rule if multiple criteria
 			"criteria" => array(
-			"field" => array("cf_opportunity_po_received","close date here", "stage here"),
-			"crit" => array("ne","3 days prior here","eq"),
-			"value" => array("Yes","","(6) Closed Won"),
+				"field" => array("cf_opportunity_po_received","document_date", "opportunity_stage[name]"),
+				"crit" => array("ne","eq","eq"),
+				"value" => array("Yes", date('j M Y', time() - 3 * 24 * 60 * 60), "(6) Closed Won"),
 			),
 			//create the actions for the rule
 			"actions" => array(
@@ -598,7 +596,7 @@ $config_rules = array(
 					'action' => 'create_task',
 					'params' => array(
 						'name' => 'FU with Apparel Shipment',
-						'description' => 'Create a Task to FU on PO for @cf_customer_quotation_contact_name@',
+						'description' => 'Create a Task to FU on PO for @description@',
 						'activity_priority' => 'Medium',
 						'activity_status' => 'New',
 						'activity_type' => 'To-do',
