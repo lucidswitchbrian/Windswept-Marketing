@@ -11,7 +11,7 @@
 
 $config_rules = array(
 "Private::Crm::SalesLead" => array(
-	
+
 		array(
 			"rule_id" => 4,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -29,7 +29,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU on Attempt to Contact MC 1',
 						'description' => 'FU on Attempt to Contact MC 1 in 5 days',
 						'activity_priority' => 'Medium',
@@ -40,7 +40,7 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 	array(
 			"rule_id" => 5,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -58,7 +58,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU on Attempt to Contact x2 MC',
 						'description' => 'FU on Attempt to Contact x2 MC in 3 days',
 						'activity_priority' => 'Medium',
@@ -80,7 +80,7 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 	array(
 			"rule_id" => 6,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -98,7 +98,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-                        'params' => array(	
+                        'params' => array(
 						'name' => 'FU on Lead Brochure Sent',
 						'description' => 'FU on Lead Brochure Sent - 7 days',
 						'activity_priority' => 'Medium',
@@ -120,12 +120,12 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 	array(
 			"rule_id" => 7,
 			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "FU in Future",
-			"rule_desc" => "when lead status is first set to FU in future, 
+			"rule_desc" => "when lead status is first set to FU in future,
 			set up a task to FU in 6 months",
 			"exec_on" => "Edit",
             "criteria_desc" => "Lead Status IS FU in Future",
@@ -139,7 +139,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU in 6 months',
 						'description' => 'FU in 6 months',
 						'activity_priority' => 'Medium',
@@ -150,7 +150,7 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 		array(
 			"rule_id" => 8,
  			"active" => 1, // Active:1; Not-Active: 0
@@ -167,7 +167,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU on Preliminary - Future Project',
 						'description' => 'FU on Preliminary in 5 days',
 						'activity_priority' => 'Medium',
@@ -178,7 +178,7 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 	array(
 			"rule_id" => 9,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -196,7 +196,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU in 2 days on PO',
 						'description' => 'FU in 2 days on PO',
 						'activity_priority' => 'Medium',
@@ -207,12 +207,12 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 		array(
 			"rule_id" => 13,
 			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "Update Opp Artwork Field When Proof Accepted",
-			"rule_desc" => "when the artwork is accepted, the Home Office should 
+			"rule_desc" => "when the artwork is accepted, the Home Office should
 			update the product record (artwork) with the new product art",
 			"exec_on" => "Edit",
             "criteria_desc" => "Artwork IS Proof Accepted",
@@ -226,7 +226,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'Update the Artwork field',
 						'description' => 'Update the Artwork field in Opportunity',
 						'activity_priority' => 'Medium',
@@ -237,7 +237,7 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 		array(
 			"rule_id" => 14,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -255,7 +255,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU with Attempted to Contact BL',
 						'description' => 'FU in 5 days',
 						'activity_priority' => 'Medium',
@@ -266,7 +266,7 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 	array(
 			"rule_id" => 15,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -284,7 +284,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU with Contactx2',
 						'description' => 'FU with Contactx2 in 3 days',
 						'activity_priority' => 'Medium',
@@ -306,7 +306,7 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 	array(
 			"rule_id" => 16,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -324,7 +324,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU with Attempted to Contact x3 BL',
 						'description' => 'FU in 120 days',
 						'activity_priority' => 'Medium',
@@ -346,13 +346,13 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 	array(
 			"rule_id" => 17,
 			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "Requested FU",
-			"rule_desc" => "when a baseline client has no immediate need, but has requested a 
-			FU for the future based on when the need exists, they should get an email as well 
+			"rule_desc" => "when a baseline client has no immediate need, but has requested a
+			FU for the future based on when the need exists, they should get an email as well
 			as set up a task for sales to fu in future",
 			"exec_on" => "Edit",
             "criteria_desc" => "Lead status IS Requested FU",
@@ -366,7 +366,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU with Baseline',
 						'description' => 'FU with Baseline FU Request and add in description - this task defaults to 1 month. Please review your lead notes to set the task to the appropriate time.',
 						'activity_priority' => 'Medium',
@@ -388,12 +388,12 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 		array(
 			"rule_id" => 18,
 			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "Waiting on Artwork",
-			"rule_desc" => "when the stage is set to Waiting on Artwork create a 
+			"rule_desc" => "when the stage is set to Waiting on Artwork create a
 			FU task and sends out the Artwork Requested email",
 			"exec_on" => "Create or Edit",
             "criteria_desc" => "Stage IS Waiting on Artwork",
@@ -407,7 +407,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU on Artwork',
 						'description' => 'FU on Artwork in 2 days',
 						'activity_priority' => 'Medium',
@@ -429,7 +429,7 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 
 		array(
 			"rule_id" => 20,
@@ -448,7 +448,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU with Attempted to Contact TK',
 						'description' => 'FU in 5 days',
 						'activity_priority' => 'Medium',
@@ -459,7 +459,7 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 	array(
 			"rule_id" => 21,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -477,7 +477,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU with Attempted to Contact x2 TK',
 						'description' => 'FU in 3 days',
 						'activity_priority' => 'Medium',
@@ -499,7 +499,7 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 	array(
 			"rule_id" => 22,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -517,7 +517,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU with Attempted to Contact x3 TK',
 						'description' => 'FU in 120 days',
 						'activity_priority' => 'Medium',
@@ -539,7 +539,7 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 		array(
 			"rule_id" => 23,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -568,13 +568,13 @@ $config_rules = array(
 				),
 			),
 		),
-	
-		
+
+
 		array(
 			"rule_id" => 27,
 			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "Waiting on PO - Sales Order",
-			"rule_desc" => "when the Sales order Status is udpdated to waiting 
+			"rule_desc" => "when the Sales order Status is udpdated to waiting
 			on po, there should be a FU set",
 			"exec_on" => "Create or Edit",
             "criteria_desc" => "Sales order Status IS Closed Waiting ON PO",
@@ -588,7 +588,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task_for_sales_order_owner',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU in 2 days on PO',
 						'description' => 'FU in 2 days on PO',
 						'activity_priority' => 'Medium',
@@ -610,12 +610,12 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 	array(
 			"rule_id" => 28,
 			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "PO Processed",
-			"rule_desc" => "When sales order status is set to po processed, 
+			"rule_desc" => "When sales order status is set to po processed,
 			create a task for OP to FU on the Oder",
 			"exec_on" => "Edit",
             "criteria_desc" => "Sales Order Status IS PO Processed",
@@ -629,7 +629,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU on Sewout from Vendor in 3 days',
 						'description' => 'FU on Sewout from Vendor in 3 days',
 						'activity_priority' => 'Medium',
@@ -640,7 +640,7 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 	array(
 			"rule_id" => 29,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -658,7 +658,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task_for_record_owner',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU On Sew Out Approval in 3 days',
 						'description' => 'FU On Sew Out Approval in 3 days',
 						'activity_priority' => 'Medium',
@@ -669,7 +669,7 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 	array(
 			"rule_id" => 30,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -687,7 +687,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task_for_Operations',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU on Sew out Edit in 3 days',
 						'description' => 'Operations to FU on Sew out Edit in 3 days',
 						'activity_priority' => 'Medium',
@@ -698,13 +698,13 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 	array(
 			"rule_id" => 31,
 			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "Expected Arrival of Product",
-			"rule_desc" => "send out an email to the client and the sales order owner 
-			letting them know the tracking number and the expected arrival date have 
+			"rule_desc" => "send out an email to the client and the sales order owner
+			letting them know the tracking number and the expected arrival date have
 			been created",
 			"exec_on" => "edit",
             "criteria_desc" => "tracking number && ETD are NOT empty",
@@ -740,12 +740,12 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 		array(
 			"rule_id" => 32,
  			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "Sew Out Recieved",
-			"rule_desc" => "when Artwork is changed in quote, we need to update 
+			"rule_desc" => "when Artwork is changed in quote, we need to update
 			it in the Opportunity that is related to it",
 			"exec_on" => "Edit",
             "criteria_desc" => "Artwork IS Sew Out Received",
@@ -758,7 +758,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'Update Artwork in',
 						'description' => 'Update Artwork in related Opportunity to Sew Out Received',
 						'activity_priority' => 'Medium',
@@ -773,8 +773,8 @@ $config_rules = array(
 			"rule_id" => 36,
 			"active" => 0, // Active:1; Not-Active: 0
             "rule_name" => "Secure P.O.",
-			"rule_desc" => "if it is 3 days after the closed date, 
-			and the PO Received checkbox is not ticked, create a task 
+			"rule_desc" => "if it is 3 days after the closed date,
+			and the PO Received checkbox is not ticked, create a task
 			to FU on PO for Opportunity Name",
 			"exec_on" => "Edit",
             "criteria_desc" => "PO Received IS NOT YES",
@@ -788,7 +788,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU with Apparel Shipment',
 						'description' => 'Create a Task to FU on PO for @cf_customer_quotation_contact_name@',
 						'activity_priority' => 'Medium',
@@ -800,7 +800,7 @@ $config_rules = array(
 			),
 		),
 	),   // end sales leads
-	
+
 	"Private::Crm::Opportunity" => array (
 		array(
 			"rule_id" => 8,
@@ -818,7 +818,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU on Preliminary',
 						'description' => 'FU on Preliminary in 5 days',
 						'activity_priority' => 'Medium',
@@ -829,13 +829,13 @@ $config_rules = array(
 				),
 			),
 		),
-		
-		
+
+
 	array(
 			"rule_id" => 10,
 			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "Waiting on Artwork - Sales Order",
-			"rule_desc" => "when the stage is set to Waiting on Artwork create a 
+			"rule_desc" => "when the stage is set to Waiting on Artwork create a
 			FU task and sends out the Artwork Requested email",
 			"exec_on" => "Create or Edit",
             "criteria_desc" => "Artwork IS Waiting On",
@@ -849,7 +849,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU on Artwork',
 						'description' => 'FU on Artwork in 2 days',
 						'activity_priority' => 'Medium',
@@ -870,18 +870,18 @@ $config_rules = array(
 					),
 				),
 			),
-		),	
+		),
 	),
-	
-	
+
+
 	"Private::Accounting::SalesOrder" => array(
 	array(
 			"rule_id" => 1,
 			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "CDP Sent",
-			"rule_desc" => "when the tracking number has been filled in and the status 
-			is updated to CDP Sent, the Home Office will get an email to check the sales 
-			order, and the client will get an email letting them know that the order has 
+			"rule_desc" => "when the tracking number has been filled in and the status
+			is updated to CDP Sent, the Home Office will get an email to check the sales
+			order, and the client will get an email letting them know that the order has
 			been shipped with the tracking number",
 			"exec_on" => "Edit",
             "criteria_desc" => "Tracking number is NOT Empty && CDP Status IS CDP Sent",
@@ -895,7 +895,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'Sales to FU with CDP Sent',
 						'description' => 'Sales to FU with CDP Sent in 5 days',
 						'activity_priority' => 'Medium',
@@ -928,13 +928,13 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 		array(
 			"rule_id" => 2,
 			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "Tracking Number Not Filled In",
-			"rule_desc" => "if production updates the status to CDP sent, and the 
-			tracking number is not filled in, he'll get an email telling him he forgot 
+			"rule_desc" => "if production updates the status to CDP sent, and the
+			tracking number is not filled in, he'll get an email telling him he forgot
 			to put the tracking number in place",
 			"exec_on" => "Edit",
             "criteria_desc" => "Tracking Number is Empty && Status is CDP Sent",
@@ -959,7 +959,7 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 		array(
 			"rule_id" => 34,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -977,7 +977,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU with Apparel Shipment',
 						'description' => 'Sales to FU on Apparel Shipment for @cf_customer_quotation_contact_name@',
 						'activity_priority' => 'Medium',
@@ -988,16 +988,16 @@ $config_rules = array(
 				),
 			),
 		),
-	
+
 	),//end Sales Order
-	
+
 	"Private::Accounting::Quotation" => array(
 	array(
 			"rule_id" => 12,
 			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "New Art Sent",
-			"rule_desc" => "When a new artwork is received for the creation of a CDP, 
-			send an alert to the Home Office to add the artwork into the Product List, 
+			"rule_desc" => "When a new artwork is received for the creation of a CDP,
+			send an alert to the Home Office to add the artwork into the Product List,
 			and then finalize the sales order by adding the product into it.",
 			"exec_on" => "Edit",
             "criteria_desc" => " Artwork IS Sent To Quoting Dept.",
@@ -1011,7 +1011,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'Send artwork to factory',
 						'description' => 'There is new product artwork to go to factory',
 						'activity_priority' => 'Medium',
@@ -1023,7 +1023,7 @@ $config_rules = array(
 				),
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU on Sew Out Proof in 3 days',
 						'description' => 'FU on Sew Out Proof',
 						'activity_priority' => 'Medium',
@@ -1039,18 +1039,18 @@ $config_rules = array(
 					'params' => array(
 						'subject' => 'Need New Art Pricing',
 						'from_address' => '@owner[login_name]@',
-						'to_addresses' => 'quotes@windsweptmarketing.com', 
+						'to_addresses' => 'quotes@windsweptmarketing.com',
 						'template' => 'New Art Pricing',
 					),
 				),
 			),
 		),
-		
+
 		array(
 			"rule_id" => 37,
 			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "Email Sew Out",
-			"rule_desc" => "when email sew out url is filled in, 
+			"rule_desc" => "when email sew out url is filled in,
 			and the artwork is sew out received, send out the email sew out proof template",
 			"exec_on" => "edit or UPDATE",
             "criteria_desc" => "Artwork IS Sew Out Received && Email Sew Out URL IS NOT empty",
@@ -1065,7 +1065,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'Update the Email Sew Out URL field',
 						'description' => 'Update the Email Sew Out URL field in the related Opportunity',
 						'activity_priority' => 'Medium',
@@ -1098,52 +1098,50 @@ $config_rules = array(
 				),
 			),
 		),
-		
+
 		array(
-			"rule_id" => 33,
- 			"active" => 1, // Active:1; Not-Active: 0
+            "rule_id" => 33,
+            "active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "Artwork Needs Edit",
-			"rule_desc" => "when artwork requires an edit to happen, send a task to the quoting person",
-			"exec_on" => "Edit",
+            "rule_desc" => "when artwork requires an edit to happen, send a task to the quoting person",
+            "exec_on" => "Edit",
             "criteria_desc" => "Artwork IS Needs Edit",
-			"criteria" => array(
-			//provide criteria for the rule if only a single criteria exists
-			"field" => "cf_customer_quotation_artwork",
-			"value" => "Needs Edit",
-			),
-			//create the actions for the rule
-			"actions" => array(
-				array(
-					'action' => 'create_task',
-					'params' => array(	
-						'name' => 'Artwork Proof Requires Edit',
-						'description' => 'create a task for quoting - Artwork Proof 
-						Requires Edit for @cf_customer_quotation_contact_name@',
-						'activity_priority' => 'Medium',
-						'activity_status' => 'New',
-						'activity_type' => 'To-do',
-						'due_date' => '+0 days',
-						'assigned_to' => 'jenene@windsweptmarketing.com',
-					),
-				),
-				array(
-					'action' => 'create_task',
-					'params' => array(	
-						'name' => 'Update Artwork Placeholder task',
-						'description' => 'Update Artwork field in related opportunity to Needs Edit',
-						'activity_priority' => 'Medium',
-						'activity_status' => 'New',
-						'activity_type' => 'To-do',
-						'due_date' => '+3 days',
-					),
-				),
-			),
-		),
+            "criteria" => array(
+            //provide criteria for the rule if only a single criteria exists
+            "field" => "cf_customer_quotation_artwork",
+            "value" => "Needs Edit",
+            ),
+            //create the actions for the rule
+            "actions" => array(
+                array(
+                    'action' => 'create_task',
+                    'params' => array(
+                        'name' => 'Artwork Proof Requires Edit',
+                        'description' => 'create a task for quoting - Artwork Proof
+                        Requires Edit for @opportunity[name]@',
+                        //Requires Edit for @cf_customer_quotation_contact_name@',
+                        'activity_priority' => 'Medium',
+                        'activity_status' => 'New',
+                        'activity_type' => 'To-do',
+                        'due_date' => '+0 days',
+                        'assigned_to' => 'jenene@windsweptmarketing.com',
+                    ),
+                ),
+                array(
+                    'action' => 'update_opportunity',
+                    'action_name' => 'Update Artwork Placeholder task',
+                    'action_description' => 'Update Artwork field in related opportunity to Needs Edit',
+                    'params' => array(
+                        'cf_opportunity_artwork' => '@cf_customer_quotation_artwork@'
+                    ),
+                ),
+            ),
+        ),
 		array(
 			"rule_id" => 3,
 			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "Create CDP",
-			"rule_desc" => "operations gets notified to get the sample 
+			"rule_desc" => "operations gets notified to get the sample
 			indirect embroideries to the production facility",
 			"exec_on" => "Edit",
             "criteria_desc" => "Stage IS Create CDP",
@@ -1152,12 +1150,12 @@ $config_rules = array(
 			//provide criteria for the rule if only a single criteria exists
 			"field" => "cf_customer_quotation_cdp_status",
 			"value" => "Create CDP",
-			),			
+			),
 			//create the actions for the rule
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'Create CDP',
 						'description' => 'Jenene  - Create CDP',
 						'activity_priority' => 'Medium',
@@ -1167,7 +1165,7 @@ $config_rules = array(
 						'assigned_to' => 'jenene@windsweptmarketing.com',
 					),
 				),
-	
+
 				array(
 					// Send alert to client
 					'active' => 1,
@@ -1178,15 +1176,15 @@ $config_rules = array(
 						//'to_addresses' => '@party.name@',
 						'to_addresses' => '@cf_customer_quotation_contact_email@',
 						'template' => 'Apparel Needed',
-					), 
+					),
 				),
-				
+
 				array(
 					// Send alert to production
 					'active' => 1,
 					'action' => 'send_alert',
 					'params' => array(
-					'subject' => 'New Client CDP',						      
+					'subject' => 'New Client CDP',
                    'from_address' => '@owner[login_name]@',
 					'to_addresses' => 'production@windsweptmarketing.com', // client email to be looked up via client ID
 				 	'template' => 'New Client CDP',
@@ -1194,12 +1192,12 @@ $config_rules = array(
 				),
  			),
 		),
-		
+
 		array(
 			"rule_id" => 35,
 			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "PO Received",
-			"rule_desc" => "once the actual po is received send an email to 
+			"rule_desc" => "once the actual po is received send an email to
 			operations asking them to send out the Sales Order",
 			"exec_on" => "Edit",
             "criteria_desc" => "PO Received field is yes or override",
@@ -1216,7 +1214,7 @@ $config_rules = array(
 					'active' => 1,
 					'action' => 'send_alert',
 					'params' => array(
-					'subject' => 'Send Sales Order',						      
+					'subject' => 'Send Sales Order',
                    'from_address' => '@owner[login_name]@',
 					'to_addresses' => 'operations@windsweptmarketing.com', // client email to be looked up via client ID
 				 	'template' => 'Send Sales Order',
@@ -1241,7 +1239,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU on Quote for @description@',
 						'description' => 'Quote Owner to FU in 3 days',
 						'activity_priority' => 'Medium',
@@ -1269,7 +1267,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'Create New Quote for @description@',
 						'description' => 'Quote Owner to create new quote in 1 day',
 						'activity_priority' => 'Medium',
@@ -1297,7 +1295,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'create_task',
-					'params' => array(	
+					'params' => array(
 						'name' => 'FU in 3 days on revised quote @description@',
 						'description' => 'Quote Owner to FU in 3 days',
 						'activity_priority' => 'Medium',
@@ -1315,7 +1313,7 @@ $config_rules = array(
 			"rule_id" => 38,
 			"active" => 1, // Active:1; Not-Active: 0
             "rule_name" => "Supplier Order Tracking Number",
-			"rule_desc" => "when tracking is filled into the supplier order, update the sales order with the 
+			"rule_desc" => "when tracking is filled into the supplier order, update the sales order with the
 			tracking number, and send out an email to the client using the Supplier Order Tracking Number email template",
 			"exec_on" => "Create or Edit",
             "criteria_desc" => "tracking number is NOT Empty",
@@ -1330,7 +1328,7 @@ $config_rules = array(
 			"actions" => array(
 				array(
 					'action' => 'send_alert',
-					'params' => array(	
+					'params' => array(
 						'subject' => 'Your Product Has Been Shipped',
 						'from_address' => '@owner[login_name]@',
 						'to_addresses' => '@cf_supplier_order_contact_email@', // client email to be looked up via client ID
@@ -1339,8 +1337,7 @@ $config_rules = array(
 				),
 			),
 		),
-	
-),
+	),
 );
 
 
