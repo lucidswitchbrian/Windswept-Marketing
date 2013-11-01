@@ -698,49 +698,6 @@ $config_rules = array(
 				),
 			),
 		),
-
-	array(
-			"rule_id" => 31,
-			"active" => 1, // Active:1; Not-Active: 0
-            "rule_name" => "Expected Arrival of Product",
-			"rule_desc" => "send out an email to the client and the sales order owner
-			letting them know the tracking number and the expected arrival date have
-			been created",
-			"exec_on" => "edit",
-            "criteria_desc" => "tracking number && ETD are NOT empty",
-			//provide the criteria for the rule if multiple criteria
-			"criteria" => array(
-			"field" => array("cf_sales_order_tracking_number","cf_sales_order_ETD"),
-			"crit" => array("ne","ne"),
-			"value" => array(" "," "),
-			),
-			//create the actions for the rule
-			"actions" => array(
-				array(
-					// Send alert to client
-					'active' => 1,
-					'action' => 'send_alert_to_Client',
-					'params' => array(
-						'subject' => 'Tracking number for PO Number',
-						'from_address' => '@owner[login_name]@',
-						'to_addresses' => '@party_id@', // client email to be looked up via client ID
-						'template' => 'Tracking number email to client',
-					),
-				),
-				array(
-					// Send alert to sales
-					'active' => 1,
-					'action' => 'send_alert',
-					'params' => array(
-						'subject' => 'Sales - Tracking number for PO Number',
-						'from_address' => '@owner[login_name]@',
-						'to_addresses' => 'orders@windsweptmarketing.com', // client email to be looked up via client ID
-						'template' => 'Tracking number email to sales',
-					),
-				),
-			),
-		),
-
 		array(
 			"rule_id" => 32,
  			"active" => 1, // Active:1; Not-Active: 0
@@ -959,7 +916,47 @@ $config_rules = array(
 				),
 			),
 		),
-
+			array(
+			"rule_id" => 31,
+			"active" => 0, // Active:1; Not-Active: 0
+            "rule_name" => "Expected Arrival of Product",
+			"rule_desc" => "send out an email to the client and the sales order owner
+			letting them know the tracking number and the expected arrival date have
+			been created",
+			"exec_on" => "edit",
+            "criteria_desc" => "tracking number && ETD are NOT empty",
+			//provide the criteria for the rule if multiple criteria
+			"criteria" => array(
+			"field" => array("cf_sales_order_tracking_number","cf_sales_order_ETD"),
+			"crit" => array("ne","ne"),
+			"value" => array(" "," "),
+			),
+			//create the actions for the rule
+			"actions" => array(
+				array(
+					// Send alert to client
+					'active' => 1,
+					'action' => 'send_alert_to_Client',
+					'params' => array(
+						'subject' => 'Tracking number for PO Number',
+						'from_address' => '@owner[login_name]@',
+						'to_addresses' => '@party_id@', // client email to be looked up via client ID
+						'template' => 'Tracking number email to client',
+					),
+				),
+				array(
+					// Send alert to sales
+					'active' => 1,
+					'action' => 'send_alert',
+					'params' => array(
+						'subject' => 'Sales - Tracking number for PO Number',
+						'from_address' => '@owner[login_name]@',
+						'to_addresses' => 'orders@windsweptmarketing.com', // client email to be looked up via client ID
+						'template' => 'Tracking number email to sales',
+					),
+				),
+			),
+		),
 		array(
 			"rule_id" => 34,
 			"active" => 1, // Active:1; Not-Active: 0
