@@ -300,49 +300,6 @@ $config_rules = array(
 				),
 			),
 		),
-
-		array(
-			"rule_id" => 18,
-			"active" => 1, // Active:1; Not-Active: 0
-            "rule_name" => "Waiting on Artwork",
-			"rule_desc" => "when the stage is set to Waiting on Artwork create a
-			FU task and sends out the Artwork Requested email",
-			"exec_on" => "Create or Edit",
-            "criteria_desc" => "Stage IS Waiting on Artwork",
-			//provide the criteria for the rule if multiple criteria
-			"criteria" => array(
-			//provide criteria for the rule if only a single criteria exists
-			"field" => "opportunity_stage[name]",
-			"value" => "(10) Waiting on Artwork",
-			),
-			//create the actions for the rule
-			"actions" => array(
-				array(
-					'action' => 'create_task',
-					'params' => array(
-						'name' => 'FU on Artwork',
-						'description' => 'FU on Artwork in 2 days',
-						'activity_priority' => 'Medium',
-						'activity_status' => 'New',
-						'activity_type' => 'To-do',
-						'due_date' => '+2 days',
-					),
-				),
-				array(
-					// Send alert to client
-					'active' => 1,
-					'action' => 'send_alert',
-					'params' => array(
-						'subject' => 'Artwork Request for Production',
-						'from_address' => '@owner[login_name]@',
-						'to_addresses' => '@party.name@', // client email to be looked up via client ID
-						'template' => 'Artwork Requests',
-					),
-				),
-			),
-		),
-
-
 		array(
 			"rule_id" => 20,
 			"active" => 1, // Active:1; Not-Active: 0
@@ -447,223 +404,6 @@ $config_rules = array(
 						'from_address' => '@owner[login_name]@',
 						'to_addresses' => '@org_lead_party[main_location[email]]@', // client email to be looked up via client ID
 						'template' => 'Attempted to Contact x3 TK',
-					),
-				),
-			),
-		),
-
-		array(
-			"rule_id" => 23,
-			"active" => 1, // Active:1; Not-Active: 0
-            "rule_name" => "Product Line Meeting",
-			"rule_desc" => "email to prospect confirming the date and time of the meeting",
-			"exec_on" => "Create",
-            "criteria_desc" => "Event Type IS Product Line Meeting",
-			//provide the criteria for the rule if multiple criteria
-			"criteria" => array(
-			//provide criteria for the rule if only a single criteria exists
-			"field" => "cf_event_type",
-			"value" => "Product Line Meeting",
-			),
-			//create the actions for the rule
-			"actions" => array(
-				array(
-					// Send alert to client
-					'active' => 1,
-					'action' => 'send_alert',
-					'params' => array(
-						'subject' => 'Windswept Marketing Meeting',
-						'from_address' => '@owner[login_name]@',
-						'to_addresses' => '@party_id@', // client email to be looked up via client ID
-						'template' => 'Product Line Meeting',
-					),
-				),
-			),
-		),
-
-
-		array(
-			"rule_id" => 27,
-			"active" => 1, // Active:1; Not-Active: 0
-            "rule_name" => "Waiting on PO - Sales Order",
-			"rule_desc" => "when the Sales order Status is udpdated to waiting
-			on po, there should be a FU set",
-			"exec_on" => "Create or Edit",
-            "criteria_desc" => "Sales order Status IS Closed Waiting ON PO",
-			//provide the criteria for the rule if multiple criteria
-			"criteria" => array(
-			//provide criteria for the rule if only a single criteria exists
-			"field" => "cf_sales_order_sales_order_status",
-			"value" => "Closed Waiting ON PO",
-			),
-			//create the actions for the rule
-			"actions" => array(
-				array(
-					'action' => 'create_task_for_sales_order_owner',
-					'params' => array(
-						'name' => 'FU in 2 days on PO',
-						'description' => 'FU in 2 days on PO',
-						'activity_priority' => 'Medium',
-						'activity_status' => 'New',
-						'activity_type' => 'To-do',
-						'due_date' => '+2 days',
-					),
-				),
-				array(
-					// Send alert to client
-					'active' => 1,
-					'action' => 'send_alert',
-					'params' => array(
-						'subject' => '___',
-						'from_address' => '@owner[login_name]@',
-						'to_addresses' => 'jenene@windsweptmarketing.com', // client email to be looked up via client ID
-						'template' => '___',
-					),
-				),
-			),
-		),
-
-	array(
-			"rule_id" => 28,
-			"active" => 1, // Active:1; Not-Active: 0
-            "rule_name" => "PO Processed",
-			"rule_desc" => "When sales order status is set to po processed,
-			create a task for OP to FU on the Oder",
-			"exec_on" => "Edit",
-            "criteria_desc" => "Sales Order Status IS PO Processed",
-			//provide the criteria for the rule if multiple criteria
-			"criteria" => array(
-			//provide criteria for the rule if only a single criteria exists
-			"field" => "cf_sales_order_sales_order_status",
-			"value" => "PO Processed",
-			),
-			//create the actions for the rule
-			"actions" => array(
-				array(
-					'action' => 'create_task',
-					'params' => array(
-						'name' => 'FU on Sewout from Vendor in 3 days',
-						'description' => 'FU on Sewout from Vendor in 3 days',
-						'activity_priority' => 'Medium',
-						'activity_status' => 'New',
-						'activity_type' => 'To-do',
-						'due_date' => '+3 days',
-					),
-				),
-			),
-		),
-
-	array(
-			"rule_id" => 29,
-			"active" => 1, // Active:1; Not-Active: 0
-            "rule_name" => "Waiting on Approval - Sales Order Sew Out",
-			"rule_desc" => "set up a task for the record owner to FU on the sew out proof",
-			"exec_on" => "edit",
-            "criteria_desc" => "Sales Order Status IS Waiting on Approval",
-			//provide the criteria for the rule if multiple criteria
-			"criteria" => array(
-			//provide criteria for the rule if only a single criteria exists
-			"field" => "cf_sales_order_sales_order_status",
-			"value" => "Waiting on Approval",
-			),
-			//create the actions for the rule
-			"actions" => array(
-				array(
-					'action' => 'create_task_for_record_owner',
-					'params' => array(
-						'name' => 'FU On Sew Out Approval in 3 days',
-						'description' => 'FU On Sew Out Approval in 3 days',
-						'activity_priority' => 'Medium',
-						'activity_status' => 'New',
-						'activity_type' => 'To-do',
-						'due_date' => '+3 days',
-					),
-				),
-			),
-		),
-
-	array(
-			"rule_id" => 30,
-			"active" => 1, // Active:1; Not-Active: 0
-            "rule_name" => "Waiting on Sew Out Edit",
-			"rule_desc" => "create a reminder to FU with factory on the sew out edit",
-			"exec_on" => "edit",
-            "criteria_desc" => "Sales Order Status IS Waiting On Sew Out Edit",
-			//provide the criteria for the rule if multiple criteria
-			"criteria" => array(
-			//provide criteria for the rule if only a single criteria exists
-			"field" => "cf_sales_order_sales_order_status",
-			"value" => "Waiting On Sew Out Edit",
-			),
-			//create the actions for the rule
-			"actions" => array(
-				array(
-					'action' => 'create_task_for_Operations',
-					'params' => array(
-						'name' => 'FU on Sew out Edit in 3 days',
-						'description' => 'Operations to FU on Sew out Edit in 3 days',
-						'activity_priority' => 'Medium',
-						'activity_status' => 'New',
-						'activity_type' => 'To-do',
-						'due_date' => '+3 days',
-					),
-				),
-			),
-		),
-		array(
-			"rule_id" => 32,
- 			"active" => 1, // Active:1; Not-Active: 0
-            "rule_name" => "Sew Out Recieved",
-			"rule_desc" => "when Artwork is changed in quote, we need to update
-			it in the Opportunity that is related to it",
-			"exec_on" => "Edit",
-            "criteria_desc" => "Artwork IS Sew Out Received",
-			"criteria" => array(
-			//provide criteria for the rule if only a single criteria exists
-			"field" => "cf_customer_quotation_artwork",
-			"value" => "Sew Out Received",
-			),
-			//create the actions for the rule
-			"actions" => array(
-				array(
-					'action' => 'create_task',
-					'params' => array(
-						'name' => 'Update Artwork in',
-						'description' => 'Update Artwork in related Opportunity to Sew Out Received',
-						'activity_priority' => 'Medium',
-						'activity_status' => 'New',
-						'activity_type' => 'To-do',
-						'due_date' => '+3 days',
-					),
-				),
-			),
-		),
-		array(
-			"rule_id" => 36,
-			"active" => 0, // Active:1; Not-Active: 0
-            "rule_name" => "Secure P.O.",
-			"rule_desc" => "if it is 3 days after the closed date,
-			and the PO Received checkbox is not ticked, create a task
-			to FU on PO for Opportunity Name",
-			"exec_on" => "Edit",
-            "criteria_desc" => "PO Received IS NOT YES",
-			//provide the criteria for the rule if multiple criteria
-			"criteria" => array(
-			"field" => array("cf_opportunity_po_received","close date here", "stage here"),
-			"crit" => array("ne","3 days prior here","eq"),
-			"value" => array("Yes","","(6) Closed Won"),
-			),
-			//create the actions for the rule
-			"actions" => array(
-				array(
-					'action' => 'create_task',
-					'params' => array(
-						'name' => 'FU with Apparel Shipment',
-						'description' => 'Create a Task to FU on PO for @cf_customer_quotation_contact_name@',
-						'activity_priority' => 'Medium',
-						'activity_status' => 'New',
-						'activity_type' => 'To-do',
-						'due_date' => '+3 days',
 					),
 				),
 			),
@@ -797,6 +537,76 @@ $config_rules = array(
 				),
 			),
 		),
+		array(
+			"rule_id" => 18,
+			"active" => 1, // Active:1; Not-Active: 0
+            "rule_name" => "Waiting on Artwork",
+			"rule_desc" => "when the stage is set to Waiting on Artwork create a
+			FU task and sends out the Artwork Requested email",
+			"exec_on" => "Create or Edit",
+            "criteria_desc" => "Stage IS Waiting on Artwork",
+			//provide the criteria for the rule if multiple criteria
+			"criteria" => array(
+			//provide criteria for the rule if only a single criteria exists
+			"field" => "opportunity_stage[name]",
+			"value" => "(10) Waiting on Artwork",
+			),
+			//create the actions for the rule
+			"actions" => array(
+				array(
+					'action' => 'create_task',
+					'params' => array(
+						'name' => 'FU on Artwork',
+						'description' => 'FU on Artwork in 2 days',
+						'activity_priority' => 'Medium',
+						'activity_status' => 'New',
+						'activity_type' => 'To-do',
+						'due_date' => '+2 days',
+					),
+				),
+				array(
+					// Send alert to client
+					'active' => 1,
+					'action' => 'send_alert',
+					'params' => array(
+						'subject' => 'Artwork Request for Production',
+						'from_address' => '@owner[login_name]@',
+						'to_addresses' => '@party.name@', // client email to be looked up via client ID
+						'template' => 'Artwork Requests',
+					),
+				),
+			),
+		),
+		array(
+			"rule_id" => 36,
+			"active" => 0, // Active:1; Not-Active: 0
+            "rule_name" => "Secure P.O.",
+			"rule_desc" => "if it is 3 days after the closed date,
+			and the PO Received checkbox is not ticked, create a task
+			to FU on PO for Opportunity Name",
+			"exec_on" => "Edit",
+            "criteria_desc" => "PO Received IS NOT YES",
+			//provide the criteria for the rule if multiple criteria
+			"criteria" => array(
+			"field" => array("cf_opportunity_po_received","close date here", "stage here"),
+			"crit" => array("ne","3 days prior here","eq"),
+			"value" => array("Yes","","(6) Closed Won"),
+			),
+			//create the actions for the rule
+			"actions" => array(
+				array(
+					'action' => 'create_task',
+					'params' => array(
+						'name' => 'FU with Apparel Shipment',
+						'description' => 'Create a Task to FU on PO for @cf_customer_quotation_contact_name@',
+						'activity_priority' => 'Medium',
+						'activity_status' => 'New',
+						'activity_type' => 'To-do',
+						'due_date' => '+3 days',
+					),
+				),
+			),
+		),
 	),
 
 
@@ -881,6 +691,92 @@ $config_rules = array(
 						'from_address' => '@owner[login_name]@',
 						'to_addresses' => 'production@windsweptmarketing.com', // client email to be looked up via client ID
 						'template' => 'Forgot Tracking Number - SO',
+					),
+				),
+			),
+		),
+		array(
+			"rule_id" => 28,
+			"active" => 1, // Active:1; Not-Active: 0
+            "rule_name" => "PO Processed",
+			"rule_desc" => "When sales order status is set to po processed,
+			create a task for OP to FU on the Oder",
+			"exec_on" => "Edit",
+            "criteria_desc" => "Sales Order Status IS PO Processed",
+			//provide the criteria for the rule if multiple criteria
+			"criteria" => array(
+			//provide criteria for the rule if only a single criteria exists
+			"field" => "cf_sales_order_sales_order_status",
+			"value" => "PO Processed",
+			),
+			//create the actions for the rule
+			"actions" => array(
+				array(
+					'action' => 'create_task',
+					'params' => array(
+						'name' => 'FU on Sewout from Vendor in 3 days',
+						'description' => 'FU on Sewout from Vendor in 3 days',
+						'activity_priority' => 'Medium',
+						'activity_status' => 'New',
+						'activity_type' => 'To-do',
+						'due_date' => '+3 days',
+					),
+				),
+			),
+		),
+
+	array(
+			"rule_id" => 29,
+			"active" => 1, // Active:1; Not-Active: 0
+            "rule_name" => "Waiting on Approval - Sales Order Sew Out",
+			"rule_desc" => "set up a task for the record owner to FU on the sew out proof",
+			"exec_on" => "edit",
+            "criteria_desc" => "Sales Order Status IS Waiting on Approval",
+			//provide the criteria for the rule if multiple criteria
+			"criteria" => array(
+			//provide criteria for the rule if only a single criteria exists
+			"field" => "cf_sales_order_sales_order_status",
+			"value" => "Waiting on Approval",
+			),
+			//create the actions for the rule
+			"actions" => array(
+				array(
+					'action' => 'create_task_for_record_owner',
+					'params' => array(
+						'name' => 'FU On Sew Out Approval in 3 days',
+						'description' => 'FU On Sew Out Approval in 3 days',
+						'activity_priority' => 'Medium',
+						'activity_status' => 'New',
+						'activity_type' => 'To-do',
+						'due_date' => '+3 days',
+					),
+				),
+			),
+		),
+		array(
+			"rule_id" => 30,
+			"active" => 1, // Active:1; Not-Active: 0
+            "rule_name" => "Waiting on Sew Out Edit",
+			"rule_desc" => "create a reminder to FU with factory on the sew out edit",
+			"exec_on" => "edit",
+            "criteria_desc" => "Sales Order Status IS Waiting On Sew Out Edit",
+			//provide the criteria for the rule if multiple criteria
+			"criteria" => array(
+			//provide criteria for the rule if only a single criteria exists
+			"field" => "cf_sales_order_sales_order_status",
+			"value" => "Waiting On Sew Out Edit",
+			),
+			//create the actions for the rule
+			"actions" => array(
+				array(
+					'action' => 'create_task_for_Operations',
+					'params' => array(
+						'name' => 'FU on Sew out Edit in 3 days',
+						'description' => 'Operations to FU on Sew out Edit in 3 days',
+						'activity_priority' => 'Medium',
+						'activity_status' => 'New',
+						'activity_type' => 'To-do',
+						'due_date' => '+3 days',
 					),
 				),
 			),
@@ -1272,6 +1168,34 @@ $config_rules = array(
 				),
 			),
 		),
+		array(
+			"rule_id" => 32,
+ 			"active" => 1, // Active:1; Not-Active: 0
+            "rule_name" => "Sew Out Recieved",
+			"rule_desc" => "when Artwork is changed in quote, we need to update
+			it in the Opportunity that is related to it",
+			"exec_on" => "Edit",
+            "criteria_desc" => "Artwork IS Sew Out Received",
+			"criteria" => array(
+			//provide criteria for the rule if only a single criteria exists
+			"field" => "cf_customer_quotation_artwork",
+			"value" => "Sew Out Received",
+			),
+			//create the actions for the rule
+			"actions" => array(
+				array(
+					'action' => 'create_task',
+					'params' => array(
+						'name' => 'Update Artwork in',
+						'description' => 'Update Artwork in related Opportunity to Sew Out Received',
+						'activity_priority' => 'Medium',
+						'activity_status' => 'New',
+						'activity_type' => 'To-do',
+						'due_date' => '+3 days',
+					),
+				),
+			),
+		),
 		// end quotation
 	),
 	"Private::Accounting::PurchaseOrder" => array(
@@ -1304,6 +1228,36 @@ $config_rules = array(
 			),
 		),
 	),
+	
+/**array(
+			"rule_id" => 23,
+			"active" => 1, // Active:1; Not-Active: 0
+            "rule_name" => "Product Line Meeting",
+			"rule_desc" => "email to prospect confirming the date and time of the meeting",
+			"exec_on" => "Create",
+            "criteria_desc" => "Event Type IS Product Line Meeting",
+			//provide the criteria for the rule if multiple criteria
+			"criteria" => array(
+			//provide criteria for the rule if only a single criteria exists
+			"field" => "cf_event_type",
+			"value" => "Product Line Meeting",
+			),
+			//create the actions for the rule
+			"actions" => array(
+				array(
+					// Send alert to client
+					'active' => 1,
+					'action' => 'send_alert',
+					'params' => array(
+						'subject' => 'Windswept Marketing Meeting',
+						'from_address' => '@owner[login_name]@',
+						'to_addresses' => '@party_id@', // client email to be looked up via client ID
+						'template' => 'Product Line Meeting',
+					),
+				),
+			),
+		),
+*/
 );
 
 
