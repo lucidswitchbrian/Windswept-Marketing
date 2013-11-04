@@ -853,14 +853,9 @@ $config_rules = array(
 			//create the actions for the rule
 			"actions" => array(
 				array(
-					'action' => 'create_task',
+					'action' => 'update_opportunity',
 					'params' => array(
-						'name' => 'Update the Email Sew Out URL field',
-						'description' => 'Update the Email Sew Out URL field in the related Opportunity',
-						'activity_priority' => 'Medium',
-						'activity_status' => 'New',
-						'activity_type' => 'To-do',
-						'due_date' => '+0 days',
+						'cf_opportunity_email_sew_out_url' => '@cf_customer_quotation_email_sew_out_url@',
 					),
 				),
 				array(
