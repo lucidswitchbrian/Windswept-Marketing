@@ -604,6 +604,31 @@ $config_rules = array(
 				),
 			),
 		),
+		array(
+			"rule_id" => 39,
+			"active" => 1, // Active:1; Not-Active: 0
+            "rule_name" => "Fill in Contact Name",
+			"rule_desc" => "when the contact name is empty in an opportunity, fill it in with the person name from the person associated with the opportunity so that the email field fills in as well",
+			"exec_on" => "Edit",
+            "criteria_desc" => "Contact Name IS empty",
+			//provide the criteria for the rule if multiple criteria
+			"criteria" => array(
+				"field" => array("linked_item_association_for_cf_opportunity_contact_name"),
+				"crit" => array("eq"),
+				"value" => array(""),
+			),
+			//create the actions for the rule
+			"actions" => array(
+				array(
+					'action' => 'update_opportunity',
+					'params' => array(
+						// 'primary_contact[name]' => '@retrieve_person_name@',
+						'linked_item_association_for_cf_opportunity_contact_name' => '@retrieve_person_name@',
+					),
+				),
+			),
+		),
+
 	),
 
 
@@ -853,7 +878,7 @@ $config_rules = array(
 			//create the actions for the rule
 			"actions" => array(
 				array(
-					'action' => 'update_opportunity',
+					'action' => 'update_related_opportunity',
 					'params' => array(
 						'cf_opportunity_email_sew_out_url' => '@cf_customer_quotation_email_sew_out_url@',
 					),
@@ -913,7 +938,7 @@ $config_rules = array(
                     ),
                 ),
                 array(
-                    'action' => 'update_opportunity',
+                    'action' => 'update_related_opportunity',
                     'action_name' => 'Update Artwork Placeholder task',
                     'action_description' => 'Update Artwork field in related opportunity to Needs Edit',
                     'params' => array(
